@@ -42,6 +42,11 @@ public class welcome extends javax.swing.JFrame {
         });
 
         button2.setLabel("Admin login");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         button3.setLabel("Company login");
         button3.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +99,12 @@ public class welcome extends javax.swing.JFrame {
             obj1.setVisible (true);
         
     }//GEN-LAST:event_button3ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+           AdminLogin login = new AdminLogin();
+           login.setVisible(true);
+           dispose();
+    }//GEN-LAST:event_button2ActionPerformed
 
     /**
      * @param args the command line arguments

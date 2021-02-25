@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import placementhub.myconnection;
+package placementhub;
 import java.sql.*;
 /**
  *
@@ -212,7 +212,7 @@ public class edit extends javax.swing.JFrame {
         {
             int r;
             r=Integer.parseInt(t1.getText());
-            String q="select* from tbstudent where rno=?";
+            String q="select * from tbstudent where rno=?";
             myconnection obj=new myconnection();
             PreparedStatement pst= obj.db.prepareStatement(q);
             pst.setInt(1,r);
@@ -226,7 +226,7 @@ public class edit extends javax.swing.JFrame {
                 t6.setText(String.valueOf(rs.getDouble("tenth")));
                 t7.setText(String.valueOf(rs.getDouble("twelfth")));
                 t8.setText(String.valueOf(rs.getDouble("graduation")));
-                t9.setText(rs.getString("fathersname"));
+                t9.setText(rs.getString("fathername"));
                 t10.setText(rs.getString("password"));
                 
            }
@@ -259,7 +259,7 @@ public class edit extends javax.swing.JFrame {
         g=Double.parseDouble(t8.getText());
         fa=t9.getText();
         p=t10.getText();
-        String q="update  tbstudent set fname=?, lname=? ,contact=?,address=?,tenth=? ,twelfth=?,graduation=?,fathersname=?, password=? where rno=?";
+        String q="update  tbstudent set fname=?, lname=? ,contact=?,address=?,tenth=? ,twelfth=?,graduation=?,fathername=?, password=? where rno=?";
        myconnection obj= new myconnection();
      
         PreparedStatement pst= obj.db.prepareStatement(q);
@@ -280,6 +280,7 @@ public class edit extends javax.swing.JFrame {
         System.out.println(e.getMessage());
     }
     
+        dispose();
         
         
         

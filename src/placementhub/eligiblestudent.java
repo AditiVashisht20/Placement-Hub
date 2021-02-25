@@ -95,24 +95,22 @@ public class eligiblestudent extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-        try
-        {
-        int id;
-        id=Integer.parseInt(t1.getText());
-    
-        String q="select c.cname from tbcompany c, tbstudent s where s.tenth>=c.tenth and s.twelfth>=c.twelfth and s.graduation>=c.graduation and s.rno=?";
-        myconnection obj=new myconnection();
-        PreparedStatement pst=obj.db.prepareStatement(q);
-        pst.setInt(1,id);
-        ResultSet rs=pst.executeQuery();
-        while(rs.next())
-        {
-            c1.add(rs.getString(1));
-        }
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getMessage());
+        System.out.println(c1.getSelectedItem());
+        if(c1.getSelectedItem() == null){
+            try{
+                int id;
+                id=Integer.parseInt(t1.getText());
+                String q="select c.cname from tbcompany c, tbstudent s where s.tenth>=c.tenth and s.twelfth>=c.twelfth and s.graduation>=c.graduation and s.rno=?";
+                myconnection obj=new myconnection();
+                PreparedStatement pst=obj.db.prepareStatement(q);
+                pst.setInt(1,id);
+                ResultSet rs=pst.executeQuery();
+                while(rs.next()){
+                    c1.add(rs.getString(1));
+                }
+            }catch(Exception e){
+                    System.out.println(e.getMessage());
+            }
         }
         
     }//GEN-LAST:event_button1ActionPerformed

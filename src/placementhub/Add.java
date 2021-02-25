@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import placementhub.myconnection;
+
+package placementhub;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -218,7 +220,7 @@ public class Add extends javax.swing.JFrame {
                             fa=t9.getText();
                             p=t10.getText();
                             myconnection obj=new myconnection();
-                            String q="insert into tbstudent (rno,fname,lname,contact,address,tenth,twelfth,graduation,fathersname,password) values(?,?,?,?,?,?,?,?,?,?)";
+                            String q="insert into tbstudent (rno,fname,lname,contact,address,tenth,twelfth,graduation,fathername,password) values(?,?,?,?,?,?,?,?,?,?)";
                             PreparedStatement pst= obj.db.prepareStatement(q);
                             pst.setInt(1,r);
                             pst.setString(2,fn);
